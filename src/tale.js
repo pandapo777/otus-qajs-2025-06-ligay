@@ -1,5 +1,5 @@
 const NAME_STRANGER = 'лиса'
-const NAME_WINTER_PERSONAGE = 'снегурочка'
+const NAME_WINTER_PERSONAGE = 'Cнегурочка1'
 
 function kolobok(name1) {
   switch (name1) {
@@ -19,7 +19,11 @@ function kolobok(name1) {
 }
 
 function newYear(name) {
-  console.log(`${name}! ${name}! ${name}!`)
+  if (name === 'Cнегурочка' || name === 'Дед Мороз') {
+    console.log(`${name}! ${name}! ${name}!`)
+  } else {
+    console.log(`Значения могут быть "Cнегурочка" или "Дед Мороз"`)
+  }
 }
 
 kolobok(NAME_STRANGER)
