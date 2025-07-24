@@ -20,7 +20,6 @@ function kolobok(name) {
 
 function newYear(name) {
   if (name === 'Cнегурочка' || name === 'Дед Мороз') {
-    // console.log(`${name}! ${name}! ${name}!`)
     const exclamationName = `${name}! `
     console.log(exclamationName.repeat(3))
   } else {
