@@ -1,8 +1,8 @@
 const NAME_STRANGER = 'лиса'
-const NAME_WINTER_PERSONAGE = 'Cнегурочка1'
+const NAME_WINTER_PERSONAGE = 'Дед Мороз'
 
-function kolobok(name1) {
-  switch (name1) {
+function kolobok(name) {
+  switch (name) {
     case 'дедушка':
       console.log('Я от дедушки ушел')
       break
@@ -20,7 +20,9 @@ function kolobok(name1) {
 
 function newYear(name) {
   if (name === 'Cнегурочка' || name === 'Дед Мороз') {
-    console.log(`${name}! ${name}! ${name}!`)
+    // console.log(`${name}! ${name}! ${name}!`)
+    const exclamationName = `${name}! `
+    console.log(exclamationName.repeat(3))
   } else {
     console.log(`Значения могут быть "Cнегурочка" или "Дед Мороз"`)
   }
