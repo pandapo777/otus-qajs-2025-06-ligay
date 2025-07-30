@@ -37,7 +37,7 @@ describe('Функция  fullTrim', () => {
       })
     })
 
-    describe('Функция  getTotal', () => {
+    
     //     const getTotalCases = [
     //         { discount : 'Двадцать два'},
     //         { discount : NaN},
@@ -53,10 +53,18 @@ describe('Функция  fullTrim', () => {
     //     expect(() => getTotal (2, discountInvalid)).toThrow('Процент скидки должен быть от 0 до 99')
     //   })
     
-
-      it('throws an error for ', () => {
+    describe('Функция  getTotal', () => {
+      it('throws an error for 0 <= discount < 100"', () => {
         expect(() => getTotal (2, 100)).toThrow('Процент скидки должен быть от 0 до 99')
       })
+    
+    it('throws an error for 0 <= discount < 100"', () => {
+        expect(() => getTotal (2, -1)).toThrow('Процент скидки должен быть от 0 до 99')
+      })
+
+    it( 'throws an error for discount !== "number"', () => {
+            expect(() => getTotal (2, '')).toThrow('Скидка должна быть числом')
+          })
     })
 
     
