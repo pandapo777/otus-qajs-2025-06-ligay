@@ -5,20 +5,16 @@ export function kolobok(name) {
   switch (name) {
     case 'дедушка':
       return 'Я от дедушки ушел'
-      break
     case 'заяц':
       return 'Я от зайца ушел'
-      break
     case 'лиса':
       return 'Меня съели'
-      break
     default:
       return 'Значения могут быть "дедушка", "заяц" или "лиса"'
-      break
   }
 }
 
-function newYear(name) {
+export function newYear(name) {
   if (name === 'Cнегурочка' || name === 'Дед Мороз') {
     const exclamationName = `${name}! `
     return exclamationName.repeat(3)
