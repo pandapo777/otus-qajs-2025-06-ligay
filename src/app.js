@@ -38,3 +38,30 @@ export const getTotal = (items = [], discount = 0) => {
   const total = items.reduce((acc, { price, quantity }) => acc + price * quantity, 0)
   return total * (1 - discount / 100)
 }
+
+// В файле src/app.js cоздать функцию getScore.
+// Функция getScore принимает на вход объект. В котором ключ это ник, а значение это успеваемость.
+// Функция getScore возвращает в ответ сумму всех баллов.
+// Пример:
+
+// const scores = {
+//   Anna: 10,
+//   Olga: 1,
+//   Ivan: 5,
+// }
+// getScore(scores); // 16
+
+const scores = {
+  Anna: 10,
+  Olga: 12,
+  Ivan: 5,
+  Peter : 13,
+}
+
+function getScore(score) {
+  return Object.values(score).reduce(function (sum, elem) {
+    return sum + elem
+  })
+}
+
+console.log(getScore(scores))
