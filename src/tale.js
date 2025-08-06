@@ -1,29 +1,25 @@
 const NAME_STRANGER = 'лиса'
 const NAME_WINTER_PERSONAGE = 'Дед Мороз'
 
-function kolobok(name) {
+export function kolobok(name) {
   switch (name) {
     case 'дедушка':
-      console.log('Я от дедушки ушел')
-      break
+      return 'Я от дедушки ушел'
     case 'заяц':
-      console.log('Я от зайца ушел')
-      break
+      return 'Я от зайца ушел'
     case 'лиса':
-      console.log('Меня съели')
-      break
+      return 'Меня съели'
     default:
-      console.log('Значения могут быть "дедушка", "заяц" или "лиса"')
-      break
+      return 'Значения могут быть "дедушка", "заяц" или "лиса"'
   }
 }
 
-function newYear(name) {
+export function newYear(name) {
   if (name === 'Cнегурочка' || name === 'Дед Мороз') {
     const exclamationName = `${name}! `
-    console.log(exclamationName.repeat(3))
+    return exclamationName.repeat(3)
   } else {
-    console.log(`Значения могут быть "Cнегурочка" или "Дед Мороз"`)
+    return `Значения могут быть "Cнегурочка" или "Дед Мороз"`
   }
 }
 
