@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MongoConfiguration">
+    <option name="serverConfigurations">
+      <set>
+        <ServerConfiguration>
+          <option name="authenticationDatabase" value="freshcredit" />
+          <option name="authenticationMechanism" value="SCRAM-SHA-1" />
+          <option name="label" value="DEVELOP" />
+          <option name="password" value="LSFh9dSBBZ" />
+          <option name="serverUrls">
+            <list>
+              <option value="192.168.3.249:27017" />
+            </list>
+          </option>
+          <option name="shellWorkingDir" value="null" />
+          <option name="sshTunnelingConfiguration">
+            <SshTunnelingConfiguration />
+          </option>
+          <option name="userDatabase" value="freshcredit" />
+          <option name="username" value="freshuser" />
+        </ServerConfiguration>
+      </set>
+    </option>
+  </component>
+</project>
