@@ -1,30 +1,6 @@
 // Напишите 5 апи-тестов на сервис bookstore
 // https://bookstore.demoqa.com/swagger/
-
-// import { BASE_URL } from "../framework/config/config"
-
 // Напишите АПИ-тесты:
-
-
-
-// describe('Auth Service', () => {
-//     test('get token with correct credentials', async () =>{
-//         const response = await fetch ('https://bookstore.demoqa.com/Account/v1/Authorized',
-//         {
-//             method: 'POST',
-//             headers: {
-//                 'Content-type' : 'application/json',
-//             },
-//             body: JSON.stringify({
-//                 userName: 'Alena',
-//                 password: '1StringString!'
-//             })
-//         })
-//         const responseBody = await response.json()
-//         console.log(responseBody)
-//     })
-//     })
-
 // Создание пользователя c ошибкой, логин уже используется
 // Создание пользователя c ошибкой, пароль не подходит
 // Создание пользователя успешно
@@ -33,6 +9,7 @@
 
 import { BASE_URL, ACCOUNT_URL, USER_NAME_EXIST, USER_PASSWORD_VALID, NEW_USER_NAME, NEW_USER_PASSWORD, NEW_USER_NAME_GETTING_USER_ID } from "../framework/config/config.js"
 import { HEADERS_REQUEST } from "../framework/services/services.js"
+let userID, token
 
 describe('Auth Service', () => {
         test('1. Создание пользователя c ошибкой, логин уже используется', async () =>{
@@ -88,6 +65,7 @@ describe('Auth Service', () => {
         expect(responseBody.userID).toBeDefined();
         console.log("responseBody.userID для Первого пользователя", responseBody.userID)
         // const USER_ID = responseBody.userID
+        userID = responseBody.userID
         
     })
    
@@ -124,6 +102,7 @@ describe('Auth Service', () => {
         expect(responseBody.result).toBe('User authorized successfully.');
         expect(responseBody.token).toBeDefined();
         expect(responseBody.expires).toBeDefined();
+        token = responseBody.token
     })
     test('6. Успешная авторизация', async () =>{
         const response = await fetch (`${BASE_URL}${ACCOUNT_URL}/Authorized`,
@@ -143,59 +122,35 @@ describe('Auth Service', () => {
         expect(responseBody).toBeTruthy;
     })
     test('7. Получение информации о пользователе', async () =>{
-        const responseGettingUserId = await fetch (`${BASE_URL}${ACCOUNT_URL}/User`,
-            {
-                method: 'POST',
-                headers: HEADERS_REQUEST,
-                body: JSON.stringify({
-                    userName: NEW_USER_NAME_GETTING_USER_ID,
-                    // password: '1StringString!'
-                    password: NEW_USER_PASSWORD
-                })
-            })
-            const responseBodyGettingUserId = await responseGettingUserId.json()
-            console.log("тело запроса", responseGettingUserId)
-            console.log(responseBodyGettingUserId)
-            console.log(responseBodyGettingUserId.userID)
-        
-
-            
-            const responseAuthorized = await fetch (`${BASE_URL}${ACCOUNT_URL}/Authorized`,
-                {
-                    method: 'POST',
-                    headers: HEADERS_REQUEST,
-                    body: JSON.stringify({
-                        
-                        userName: NEW_USER_NAME_GETTING_USER_ID,
-                        // password: '1StringString!'
-                        password: NEW_USER_PASSWORD,
-
-                    })
-                    
-                })
-
-               
-                // console.log(responseAuthorized.json())
-                const responseBodyAuthorized = await responseAuthorized.json()
-                // console.log(responseAuthorized.NEW_USER_NAME)
-                console.log(responseBodyAuthorized)
-            
-        const response = await fetch (`${BASE_URL}${ACCOUNT_URL}/User/{${responseBodyGettingUserId.userID}}`,
-            
-           
+          const response = await fetch (`${BASE_URL}${ACCOUNT_URL}/User/${userID}`,
         {
             method: 'GET',
-            headers: HEADERS_REQUEST,
-            // body: JSON.stringify({
-            //    UserID : USER_ID
-            // })
+            headers: {
+                'Content-Type':'application/json',
+                'Authorization':`Bearer ${token}`
+            }
         })
         const responseBody = await response.json()
         console.log(response)
         console.log('7. Получение информации о пользователе', responseBody)
-        // expect(responseBody.username).toBe(NEW_USER_NAME)
-        // // console.log(responseBody.username)
-        // expect(responseBody.userID).toBeDefined();
+        expect(responseBody.username).toBe(NEW_USER_NAME)
+        expect(responseBody.userId).toBe(userID);
     })
-
-    })
+    test('8. Удаление пользователя', async () =>{
+       const response = await fetch (`${BASE_URL}${ACCOUNT_URL}/User/${userID}`,
+      {
+          method: 'DELETE',
+          headers: {
+            'Content-Type':'application/json',
+            'Authorization':`Bearer ${token}`
+          }
+      })
+      // console.log()
+      const responseBody = await response
+      console.log('8. Удаление пользователя', response)
+      console.log('8. Удаление пользователя', responseBody)
+      expect(response.status).toBe(204);
+      expect(response.statusText).toBe('No Content');
+      
+  })
+ })
