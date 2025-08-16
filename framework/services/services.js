@@ -1,13 +1,13 @@
-import { BASE_URL, ACCOUNT_URL, BOOK_URL, TOKEN_EXIST_USER} from "../config/config";
+import { BASE_URL, ACCOUNT_URL, BOOK_URL, TOKEN_EXIST_USER, ISBN, ISBN_NEW} from "../config/config";
 export const HEADERS_REQUEST = {
         'Content-Type':'application/json'
 };
-// export const collectionOfIsbns = [
-//         {
-//                 'isbn' : isbn
+export const COLLECTION_OF_ISBNS = 
+        {
+                'isbn' : '9781449331818'
 
-//         }
-// ] 
+        }
+
         
 
 
@@ -65,49 +65,78 @@ export const authorized = async ({userName, password}) =>{
                         }
                 }
 
-// export const manageUser = async ({userID, requestMethod, token}) => {
-//          const response = await fetch (`${BASE_URL}${ACCOUNT_URL}/User/${userID}`,
-//                         {
-//                             method: requestMethod,
-//                             headers: {
-//                                 'Content-Type':'application/json',
-//                                 'Authorization':`Bearer ${token}`
-//                             }
-//                         })
-//                         return {
-//                                 headers: response.headers,
-//                                 status: response.status,
-//                                 data: await response.json()
-//                         }
-//                 }
+export const createUserBooks = async ({userId, isbn}) =>{
+        const response = await fetch (`${BASE_URL}${BOOK_URL}/Books`,
+                {
+                        method: 'POST',
+                        headers: {
+                                 'Content-Type':'application/json',
+                                 'Authorization':`Bearer ${TOKEN_EXIST_USER}`
+                                },
+                                 body: JSON.stringify({
+                                        userId, 
+                                        collectionOfIsbns :[{isbn}]
+                                })
+                        })
+                        return {
+                                headers: response.headers,
+                                status: response.status,
+                                data: await response.json()
+                        }
+                }
 
-// {
-//         "userId": "d364a91a-b6b8-4477-8cf5-317c601c4436",
-//         "collectionOfIsbns": [
-//           {
-//             "isbn": "9781449325862"
-//           }
-//         ]
-//       }
+export const replaceUserBook = async ({userId, isbn}) =>{
+         const response = await fetch (`${BASE_URL}${BOOK_URL}/Books/${ISBN}`,
+                {
+                        method: 'PUT',
+                        headers: {
+                                 'Content-Type':'application/json',
+                                 'Authorization':`Bearer ${TOKEN_EXIST_USER}`
+                                   },
+                                  body: JSON.stringify({
+                                                        userId, 
+                                                        isbn
+                                                })
+                                        })
+                                 return {
+                                        headers: response.headers,
+                                        status: response.status,
+                                        data: await response.json()
+                                }
+                        }
 
-// export const createUserBooks = async ({userExistId, isbn}) =>{
-//         const response = await fetch (`${BASE_URL}${BOOK_URL}/Books`,
-//                 {
-//                         method: 'POST',
-//                         headers: {
-//                                  'Content-Type':'application/json',
-//                                  'Authorization':`Bearer ${TOKEN_EXIST_USER}`
-//                                 },
-//                                  body: JSON.stringify({
-//                                         userExistId, 
-//                                         collectionOfIsbns : [JSON.stringify({ isbn })]
-                                        
-                                        
-//                                 })
-//                         })
-//                         return {
-//                                 headers: response.headers,
-//                                 status: response.status,
-//                                 data: await response.json()
-//                         }
-//                 }
+export const gettingInformationUserBook = async () =>{
+         const response = await fetch (`${BASE_URL}${BOOK_URL}/Book?ISBN=${ISBN}`,
+                {
+                        method: 'GET',
+                        headers: {
+                                 'Content-Type':'application/json',
+                                 'Authorization':`Bearer ${TOKEN_EXIST_USER}`
+                                   },
+                                })
+                                 return {
+                                        headers: response.headers,
+                                        status: response.status,
+                                        data: await response.json()
+                                }
+                        }
+
+ export const deleteUserBook = async ({userId, isbn}) =>{
+         const response = await fetch (`${BASE_URL}${BOOK_URL}/Book`,
+                {
+                        method: 'DELETE',
+                        headers: {
+                                 'Content-Type':'application/json',
+                                 'Authorization':`Bearer ${TOKEN_EXIST_USER}`
+                                   },
+                                   body: JSON.stringify({
+                                        userId, 
+                                        isbn
+                                })
+                        })
+                                 return {
+                                        headers: response.headers,
+                                        status: response.status,
+                                        // data: await response.json()
+                                }
+                        }
