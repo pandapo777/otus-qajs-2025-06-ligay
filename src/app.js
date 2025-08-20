@@ -55,7 +55,7 @@ const scores = {
   Anna: 10,
   Olga: 12,
   Ivan: 5,
-  Peter : 13,
+  Peter: 13
 }
 
 function getScore(score) {
