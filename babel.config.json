@@ -4,11 +4,12 @@
       "@babel/preset-env",
       {
         "targets": {
-          "node": "22"
-        }
-        //   "useBuiltIns": "usage",
-        //   "corejs": "3.6.5"
+          "node": "20"
+        },
+          "useBuiltIns": "usage",
+          "corejs": "3.6.5"
       }
-    ]
+    ],
+ "@babel/preset-typescript"
   ]
 }
