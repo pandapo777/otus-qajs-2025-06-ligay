@@ -14,7 +14,7 @@ import {
   USER_PASSWORD_VALID,
   NEW_USER_NAME,
   NEW_USER_PASSWORD
-} from '../framework/config/config.ts'
+} from '../framework/config/config'
 
 import { createUser, generateToken, authorized } from '../framework/services/services'
 let userIDID: string, token: string

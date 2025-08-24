@@ -19,7 +19,7 @@
     "module": "nodenext",
     "target": "esnext",
     "types": [],
-    "allowImportingTsExtensions": true,
+    "allowImportingTsExtensions" : true,
     // "allowArbitraryExtensions" : true,
     // For nodejs:
     // "lib": ["esnext"],
