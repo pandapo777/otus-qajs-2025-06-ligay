@@ -4,7 +4,7 @@ import {
   replaceUserBook,
   gettingInformationUserBook,
   deleteUserBook
-} from '../framework/services/services.ts'
+} from '../framework/services/services'
 
 describe('Проверка создания книги в коллекции пользователя', () => {
   const createUserBooksCases = [
