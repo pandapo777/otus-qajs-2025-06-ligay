@@ -1,17 +1,6 @@
-import { from } from 'memorystream'
-import { kolobok, newYear } from '../src/tale.js'
+// import { from } from 'memorystream'
+import { kolobok, newYear } from '../src/tale'
 
-// describe('Функция  kolobok', () => {
-//   test('Проверка результата name === "дедушка"', () => {
-//     const result = kolobok('дедушка')
-//     expect(result).toContain('Я от дедушки ушел')
-//   })
-
-//   test('Проверка результата name !== допустимым значениям', () => {
-//     const result = kolobok('дЭдушка')
-//     expect(result).toContain('Значения могут быть "дедушка", "заяц" или "лиса"')
-//   })
-// })
 describe('Функция  kolobok', () => {
   const kolobokCases = [
     { name: 'дедушка', expected: 'Я от дедушки ушел' },
@@ -22,7 +11,7 @@ describe('Функция  kolobok', () => {
     { name: '123445', expected: 'Значения могут быть "дедушка", "заяц" или "лиса"' },
     { name: 12334555, expected: 'Значения могут быть "дедушка", "заяц" или "лиса"' }
   ]
-  it.each(kolobokCases)('Проверка результатов встречи колобка с другими персонажами', ({ name, expected }) => {
+  it.each(kolobokCases)('Проверка результатов встречи колобка с другими персонажами', ({ name, expected }: any) => {
     const result = kolobok(name)
     expect(result).toBe(expected)
   })
@@ -37,7 +26,7 @@ describe('Функция  newYear', () => {
     { name: '123445', expected: 'Значения могут быть "Cнегурочка" или "Дед Мороз"' },
     { name: 12334555, expected: 'Значения могут быть "Cнегурочка" или "Дед Мороз"' }
   ]
-  it.each(newYearCases)('Проверка вызова новогодних персонажей', ({ name, expected }) => {
+  it.each(newYearCases)('Проверка вызова новогодних персонажей', ({ name, expected }: any) => {
     const result = newYear(name)
     expect(result).toBe(expected)
   })

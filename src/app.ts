@@ -3,7 +3,7 @@
  * @param {string} name
  * @returns {boolean}
  */
-export const nameIsValid = name => typeof name === 'string' && name.length >= 2 && /^[a-z]+$/.test(name)
+export const nameIsValid = (name: string) => typeof name === 'string' && name.length >= 2 && /^[a-z]+$/.test(name)
 
 /**
  * Удаление пробелов из строки
@@ -11,7 +11,7 @@ export const nameIsValid = name => typeof name === 'string' && name.length >= 2 
  * @param {string} text
  * @returns {string}
  */
-export const fullTrim = text => (text ?? '').replace(/\s+/g, '')
+export const fullTrim = (text: string) => (text ?? '').replace(/\s+/g, '')
 
 /**
  * Подсчёт суммы заказа
@@ -50,18 +50,17 @@ export const getTotal = (items = [], discount = 0) => {
 //   Ivan: 5,
 // }
 // getScore(scores); // 16
+// const scores  = {
+//   Anna: 10,
+//   Olga: 12,
+//   Ivan: 5,
+//   Peter: 13
+// }
 
-const scores = {
-  Anna: 10,
-  Olga: 12,
-  Ivan: 5,
-  Peter: 13
-}
+// function getScore(score: number) {
+//   return Object.values(score).reduce(function (sum: number, elem: number) {
+//     return sum + elem
+//   }, 0)
+// }
 
-function getScore(score) {
-  return Object.values(score).reduce(function (sum, elem) {
-    return sum + elem
-  })
-}
-
-console.log(getScore(scores))
+// console.log(getScore(scores))

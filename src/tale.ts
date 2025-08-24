@@ -1,7 +1,7 @@
 const NAME_STRANGER = 'лиса'
 const NAME_WINTER_PERSONAGE = 'Дед Мороз'
 
-export function kolobok(name) {
+export function kolobok(name: string) {
   switch (name) {
     case 'дедушка':
       return 'Я от дедушки ушел'
@@ -14,7 +14,7 @@ export function kolobok(name) {
   }
 }
 
-export function newYear(name) {
+export function newYear(name: string) {
   if (name === 'Cнегурочка' || name === 'Дед Мороз') {
     const exclamationName = `${name}! `
     return exclamationName.repeat(3)

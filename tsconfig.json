@@ -1,4 +1,11 @@
 {
+  "include": [
+    "src/**/*",
+    "tests/**/*",
+    "framework/**/**/*"
+    // "fixtures/**/*",
+    // "tests/**/*",
+  ],
   // Visit https://aka.ms/tsconfig to read more about this file
   "compilerOptions": {
     // File Layout
@@ -7,9 +14,13 @@
 
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
+    // "module": "nodenext",
+    // "target": "esnext",
     "module": "nodenext",
     "target": "esnext",
     "types": [],
+    "allowImportingTsExtensions": true,
+    // "allowArbitraryExtensions" : true,
     // For nodejs:
     // "lib": ["esnext"],
     // "types": ["node"],
@@ -39,6 +50,6 @@
     "isolatedModules": true,
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
-    "skipLibCheck": true,
+    "skipLibCheck": true
   }
 }
