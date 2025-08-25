@@ -1,12 +1,16 @@
-import { BASE_URL, ACCOUNT_URL, BOOK_URL, TOKEN_EXIST_USER, ISBN, ISBN_NEW } from '../config/config'
-export const HEADERS_REQUEST = {
-  'Content-Type': 'application/json'
-}
-export const COLLECTION_OF_ISBNS = {
-  isbn: '9781449331818'
+import { BASE_URL, ACCOUNT_URL, BOOK_URL, TOKEN_EXIST_USER, ISBN } from '../config/config.ts'
+
+interface UserLoginPayload {
+  userName: string
+  password: string
 }
 
-export const createUser = async ({ userName, password }) => {
+interface CreateUserBooksPayload {
+  userId: string
+  isbn: string
+}
+
+export const createUser = async ({ userName, password }: UserLoginPayload) => {
   const response = await fetch(`${BASE_URL}${ACCOUNT_URL}/User`, {
     method: 'POST',
     headers: {
@@ -24,7 +28,7 @@ export const createUser = async ({ userName, password }) => {
   }
 }
 
-export const generateToken = async ({ userName, password }) => {
+export const generateToken = async ({ userName, password }: UserLoginPayload) => {
   const response = await fetch(`${BASE_URL}${ACCOUNT_URL}/GenerateToken`, {
     method: 'POST',
     headers: {
@@ -42,7 +46,7 @@ export const generateToken = async ({ userName, password }) => {
   }
 }
 
-export const authorized = async ({ userName, password }) => {
+export const authorized = async ({ userName, password }: UserLoginPayload) => {
   const response = await fetch(`${BASE_URL}${ACCOUNT_URL}/Authorized`, {
     method: 'POST',
     headers: {
@@ -60,7 +64,7 @@ export const authorized = async ({ userName, password }) => {
   }
 }
 
-export const createUserBooks = async ({ userId, isbn }) => {
+export const createUserBooks = async ({ userId, isbn }: CreateUserBooksPayload) => {
   const response = await fetch(`${BASE_URL}${BOOK_URL}/Books`, {
     method: 'POST',
     headers: {
@@ -79,7 +83,7 @@ export const createUserBooks = async ({ userId, isbn }) => {
   }
 }
 
-export const replaceUserBook = async ({ userId, isbn }) => {
+export const replaceUserBook = async ({ userId, isbn }: CreateUserBooksPayload) => {
   const response = await fetch(`${BASE_URL}${BOOK_URL}/Books/${ISBN}`, {
     method: 'PUT',
     headers: {
@@ -113,7 +117,7 @@ export const gettingInformationUserBook = async () => {
   }
 }
 
-export const deleteUserBook = async ({ userId, isbn }) => {
+export const deleteUserBook = async ({ userId, isbn }: CreateUserBooksPayload) => {
   const response = await fetch(`${BASE_URL}${BOOK_URL}/Book`, {
     method: 'DELETE',
     headers: {
@@ -128,6 +132,5 @@ export const deleteUserBook = async ({ userId, isbn }) => {
   return {
     headers: response.headers,
     status: response.status
-    // data: await response.json()
   }
 }

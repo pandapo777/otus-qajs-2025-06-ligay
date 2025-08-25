@@ -13,7 +13,8 @@ describe('Функция  nameIsValid', () => {
     { name: 'john ', expected: false },
     { name: ' john', expected: false }
   ]
-  it.each(nameIsValidCases)('Проверка имени на валидность', ({ name, expected }) => {
+
+  it.each(nameIsValidCases)('Проверка имени на валидность', ({ name, expected }: any) => {
     const result = nameIsValid(name)
     expect(result).toBe(expected)
   })
@@ -30,27 +31,13 @@ describe('Функция  fullTrim', () => {
     { text: '1 2 3 4 ', expected: '1234' },
     { text: '', expected: '' }
   ]
-  it.each(fullTrimCases)('Проверка на удаление пробелов', ({ text, expected }) => {
+
+  it.each(fullTrimCases)('Проверка на удаление пробелов', ({ text, expected }: any) => {
     const result = fullTrim(text)
     expect(result).toBe(expected)
     expect(result).not.toContain(' ')
   })
 })
-
-//     const getTotalCases = [
-//         { discount : 'Двадцать два'},
-//         { discount : NaN},
-//         { discount : ' '},
-//         { discount : 2231242124},
-//         // { discountInvalid : -2 },
-//         // { discountInvalid : 100.1 },
-//     ]
-//   it.each(getTotalCases)('throws an error for discount !== "number"', (2, discount) => {
-//     expect(() => getTotal (2, discount)).toThrow('Скидка должна быть числом')
-//   })
-//   it.each(getTotalCases)('throws an error for 0 <= discount < 100"', (discountInvalid) => {
-//     expect(() => getTotal (2, discountInvalid)).toThrow('Процент скидки должен быть от 0 до 99')
-//   })
 
 describe('Функция  getTotal', () => {
   it('throws an error for 0 <= discount < 100"', () => {
@@ -65,6 +52,3 @@ describe('Функция  getTotal', () => {
     expect(() => getTotal(2, '')).toThrow('Скидка должна быть числом')
   })
 })
-
-// console.log(fullTrim('John + Amelia'))
-//
