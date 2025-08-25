@@ -9,6 +9,6 @@ export default [
   // DOC: https://www.npmjs.com/package/eslint-plugin-jest
   {
     files: ['test/**'],
-     ...jest.configs['flat/recommended']
+    ...jest.configs['flat/recommended']
   }
 ]

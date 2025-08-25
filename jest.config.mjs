@@ -32,7 +32,7 @@ const config = {
   // ],
 
   // Indicates which provider should be used to instrument code for coverage
-  coverageProvider: 'v8'
+  coverageProvider: 'v8',
 
   // A list of reporter names that Jest uses when writing coverage reports
   // coverageReporters: [
@@ -109,7 +109,19 @@ const config = {
   // projects: undefined,
 
   // Use this configuration option to add custom reporters to Jest
-  // reporters: undefined,
+   reporters: [
+    'default',
+    ['github-actions', { silent: false }],
+    'summary',
+    [
+      'jest-html-reporters',
+      {
+        publicPath: './reports/html-report',
+        filename: 'index.html',
+        openReport: true//!process.env.CI
+      }
+    ]
+   ],
 
   // Automatically reset mock state before every test
   // resetMocks: false,
