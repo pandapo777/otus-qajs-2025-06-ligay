@@ -4,8 +4,7 @@ export const ACCOUNT_URL = '/Account/v1'
 export const BOOK_URL = '/BookStore/v1'
 export const USER_NAME_EXIST = 'Alena11' //"userID": "d364a91a-b6b8-4477-8cf5-317c601c4436", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IkFsZW5hMTEiLCJwYXNzd29yZCI6IjFTdHJpbmdTdHJpbmchIiwiaWF0IjoxNzU1MzY0NzQ2fQ.NdLLU5BSwh60VOUNHvIzdTdyLoSDcz7ueJUhbw3fKnI"
 export const USER_EXIST_ID = 'd364a91a-b6b8-4477-8cf5-317c601c4436'
-export const TOKEN_EXIST_USER =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IkFsZW5hMTEiLCJwYXNzd29yZCI6IjFTdHJpbmdTdHJpbmchIiwiaWF0IjoxNzU1NzA0MjUyfQ.ra61nVWeMhu97gJLdXyZTmfArLYEm0NeNm0v3sQBMws'
+export const TOKEN_EXIST_USER ='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IkFsZW5hMTEiLCJwYXNzd29yZCI6IjFTdHJpbmdTdHJpbmchIiwiaWF0IjoxNzU2MzIzNjAxfQ.uuys-QIFNYpUSwXsKempZ31_S2OpHD8GpDHQ_aO2WvI'
 export const ISBN = '9781449331818'
 export const ISBN_NEW = '9781449337711'
 export const USER_PASSWORD_VALID = '1StringString!'

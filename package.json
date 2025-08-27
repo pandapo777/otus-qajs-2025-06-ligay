@@ -19,7 +19,8 @@
     "lint:ci": "eslint .",
     "lint": "eslint . --fix",
     "prettier": "npx prettier . --write",
-    "tsc": "npx tsc --noEmit"
+    "tsc": "npx tsc --noEmit",
+    "docker": "docker build -t otus-qajs-2025-06-ligay ."
   },
   "dependencies": {
     "acorn": "^8.14.0",
