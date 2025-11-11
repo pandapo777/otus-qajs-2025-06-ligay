@@ -41,18 +41,19 @@ export const loginUserOrdoCrm = async ({password, username}) =>{
         } 
 }
 
-// export const deleteUserOrdoCRM = async ({userID}) =>{
-//     const response = await fetch (`${OTUS_PROJECT_BASE_URL}${OTUS_PROJECT_USER_URL}/${userID}`,
-//         {
-//             method: 'DELETE',
-//             headers: {
-//                 'Authorization':'11a71a5a-bad4-4530-9278-0de4f7ebc84f'
-//             },        }
-//     )
-//     return {
-//         headers: response.headers,
-//         status: response.status,
-//         data: await response.json()
-//     }
-// }
+export const deleteUserOrdoCRM = async ({userID}) =>{
+    const response = await fetch (`${OTUS_PROJECT_BASE_URL}${OTUS_PROJECT_USER_URL}/${userID}`,
+        {
+            method: 'DELETE',
+            headers: {
+                'Content-Type':'application/json',
+                'Authorization':'11a71a5a-bad4-4530-9278-0de4f7ebc84f'
+            },        }
+    )
+    return {
+        headers: response.headers,
+        status: response.status,
+        data: await response.json()
+    }
+}
 

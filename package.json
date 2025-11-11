@@ -2,6 +2,7 @@
   "name": "otus-qajs-2025-06-ligay",
   "version": "1.0.0",
   "description": "Version 2",
+  "keywords": [],
   "homepage": "https://github.com/pandapo777/otus-qajs-2025-06-ligay#readme",
   "bugs": {
     "url": "https://github.com/pandapo777/otus-qajs-2025-06-ligay/issues"
@@ -113,6 +114,5 @@
     "globals": "^16.3.0",
     "jest": "^30.0.5",
     "prettier": "3.6.2"
-  },
-  "keywords": []
+  }
 }
