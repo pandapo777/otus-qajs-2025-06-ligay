@@ -1,17 +1,10 @@
 import { generateUserCredentials } from "../fixtures/userFixture.js"
 
-export const OTUS_PROJECT_BASE_URL = 'http://api.auth.dev.practic.ordocrm.online/api'
-export const OTUS_PROJECT_USER_URL= '/user'
-export const OTUS_PROJECT_USER_AUTH_LOGIN_URL= '/auth/login'
-export const OTUS_PROJECT_NEW_USER_NAME = generateUserCredentials().username
+export const OTUS_PROJECT_NEW_USER_NAME = generateUserCredentials().username 
+export const OTUS_PROJECT_BASE_URL = 'http://api.auth.dev.practic.ordocrm.online'
+export const OTUS_PROJECT_USER_URL= '/api/user'
+export const OTUS_PROJECT_USER_AUTH_LOGIN_URL= '/api/auth/login'
 export const OTUS_PROJECT_NEW_USER_PASSWORD = 'Alena111' 
-// export const OTUS_PROJECT_USER_EXIST_ID = 'd364a91a-b6b8-4477-8cf5-317c601c4436'
-// export const OTUS_PROJECT_TOKEN_EXIST_USER = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IkFsZW5hMTEiLCJwYXNzd29yZCI6IjFTdHJpbmdTdHJpbmchIiwiaWF0IjoxNzU1MzY0NzQ2fQ.NdLLU5BSwh60VOUNHvIzdTdyLoSDcz7ueJUhbw3fKnI'
-// export const OTUS_PROJECT_ISBN = '9781449331818'
-// export const OTUS_PROJECT_ISBN_NEW = '9781449337711'
-// export const OTUS_PROJECT_USER_PASSWORD_VALID = '1StringString!' 
-// export const OTUS_PROJECT_NEW_USER_NAME = generateUserCredentials().username //Для успешного прохождения кейса №3 нужно создается имя нового пользователя каждый раз с помощью библиотеки fakers
-// export const OTUS_PROJECT_NEW_USER_PASSWORD = 'Alena2025String!1'
-// export const OTUS_PROJECT_NEW_USER_NAME_GETTING_USER_ID = generateUserCredentials().username 
-// console.log(OTUS_PROJECT_NEW_USER_NAME_GETTING_USER_ID),
-// console.log(OTUS_PROJECT_NEW_USER_NAME)
+export const OTUS_PROJECT_ADMIN_TOKEN = '11a71a5a-bad4-4530-9278-0de4f7ebc84f' //Валидный токен пользователя с правами администратора
+export const OTUS_PROJECT_EXPIRED_ADMIN_TOKEN = '1a1ee860-2a2a-4f67-a3d0-8fc6fabd62b2' //Истекший токен пользователя с правами администратора
+export const OTUS_PROJECT_USER_ID_PARAMETRIZED = 'aff000fc-1fe6-4063-8407-c576e5a3c1eb' //{"password": "Alena111", "username": "Jon123123123"}

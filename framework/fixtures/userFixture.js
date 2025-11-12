@@ -1,11 +1,11 @@
-import { faker } from "@faker-js/faker";
-// import { NEW_USER_PASSWORD } from "../config/config";
+import { ru, fakerRU } from "@faker-js/faker";
+
 export function generateUserCredentials() {
     return {
-        username: faker.internet.username(),
-        // password: NEW_USER_PASSWORD
-        password: faker.internet.password()
+        username: fakerRU.internet.username(ru),
+        password: fakerRU.internet.password()
     }
 }
+console.log(generateUserCredentials().username)
 
 // console.log(generateUserCredentials().username)
